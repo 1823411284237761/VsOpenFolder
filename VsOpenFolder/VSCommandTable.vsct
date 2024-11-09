@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Include href="KnownImageIds.vsct"/>
+  <Include href="VSGlobals.vsct"/>
+
+  <Commands package="VsOpenFolder">
+    <Groups>
+      <Group guid="VsOpenFolder" id="MyMenuGroup" priority="0x9999">
+        <Parent guid="VSMainMenu" id="StandardToolbar"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="VsOpenFolder" id="OpenFolderCommand" priority="0x0100" type="Button">
+        <Parent guid="VsOpenFolder" id="MyMenuGroup" />
+        <Icon guid="ImageCatalogGuid" id="FolderClosed" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Open Output Folder</ButtonText>
+          <LocCanonicalName>.View.VsOpenFolder</LocCanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <VisibilityConstraints>
+    <VisibilityItem guid="VsOpenFolder" id="OpenFolderCommand" context="UICONTEXT_SolutionHasSingleProject" />
+    <VisibilityItem guid="VsOpenFolder" id="OpenFolderCommand" context="UICONTEXT_SolutionHasMultipleProjects" />
+  </VisibilityConstraints>
+
+  <KeyBindings>
+    <KeyBinding guid="VsOpenFolder" id="OpenFolderCommand" editor="guidVSStd97"
+                key1="1" mod1="Control" key2="1" mod2="Control" />
+  </KeyBindings>
+
+  <Symbols>
+    <GuidSymbol name="VsOpenFolder" value="{cd34cad0-0f7e-4103-a40b-11094162a828}">
+      <IDSymbol name="MyMenuGroup" value="0x0020" />
+      <IDSymbol name="OpenFolderCommand" value="0x0130" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
